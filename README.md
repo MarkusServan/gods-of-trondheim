@@ -113,7 +113,7 @@ Don't work directly on `main`. Create your own branch:
 git checkout -b your-religion
 ```
 
-For example: `git checkout -b maria/add-login-page`
+For example: `git checkout -b hinduism`
 
 ### 3. Add your files
 
@@ -142,7 +142,7 @@ This stages everything. Run `git status` again — your files should now appear 
 Save a snapshot with a message describing what you added:
 
 ```bash
-git commit -m "Add login page layout"
+git commit -m "Add descirption of nattverden"
 ```
 
 Keep the message short and descriptive.
@@ -150,24 +150,10 @@ Keep the message short and descriptive.
 ### 7. Push to GitHub
 
 ```bash
-git push -u origin your-name/description
+git push
 ```
-
 ---
 
-## Quick Reference
-
-The full sequence after initial setup:
-
-```bash
-git pull                                    # get latest changes
-git checkout -b your-name/description       # create your branch
-# ... add your files to the folder ...
-git add .                                   # stage everything
-git commit -m "Describe what you added"     # commit
-git push -u origin your-name/description    # push to GitHub
-# ... then open a Pull Request on GitHub
-```
 
 ---
 
