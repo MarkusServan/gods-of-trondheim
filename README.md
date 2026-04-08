@@ -35,6 +35,7 @@ Use a terminal. The one in VS code is good.
 - **Windows:** Download from [git-scm.com](https://git-scm.com/downloads)
 
 Verify it works in a terminal:
+The following are terminal commands.
 
 ```bash
 git --version
