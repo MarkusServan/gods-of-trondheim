@@ -1,0 +1,152 @@
+/* 0. Global Reset */
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Matches your page background */
+    width: 100%;
+    overflow-x: hidden; /* Prevents accidental horizontal scrolling */
+}
+/* 1. Reset and Base Setup */
+#my-part * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#my-part {
+    background-color: #000000;
+    min-height: 100vh;
+    font-family: system-ui, -apple-system, sans-serif;
+    color: #f5f5f5;
+    padding: 0 5vw; /* Only horizontal padding for the main container */
+}
+
+/* 2. Muted Palette Variables */
+:root {
+    --muted-1: #000000;
+    --muted-2: #000000;
+    --muted-3: #000000;
+    --muted-4: #000000;
+    --muted-5: #000000;
+}
+
+/* 3. Banner Section Styling */
+.banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 40vh;      /* Ensures the banner fills most of the screen */
+    padding: 60px 0;
+    margin-bottom: 50vh;   /* This is the gap before the boxes start */
+    background-color: #000;
+}
+
+.banner-image {
+    width: 60vw;
+    max-width: 600px;
+    margin: 2rem 0;
+}
+
+.banner-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.banner-text {
+    text-align: center;
+    max-width: 80vw;
+}
+
+.banner-text h1 {
+    font-size: 3.5rem;
+    color: #f5f5f5;
+    margin-bottom: 1rem;   /* Standard spacing between title and image */
+    letter-spacing: 2px;
+}
+
+.banner-text p {
+    font-size: 1.5rem;
+    color: #888;
+    font-style: italic;
+}
+
+/* 4. Layout Container */
+.box-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* 5. Row Logic (Alternating Layout) */
+.row {
+    display: flex;
+    width: 100%;
+    height: 75vh;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4vw;
+    margin-bottom: 30vh;   /* Space between the alternating rows */
+}
+
+.row:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* 6. Shared Styling for Text and Image Boxes */
+.text-box, .image-box {
+    width: 45vw;
+    height: 100%;
+    border-radius: 40px;
+    overflow: hidden;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+
+/* 7. Text Box Specifics */
+.text-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 3rem;
+    font-size: 1.5rem;
+}
+
+.text-box:hover {
+    transform: scale(1.02);
+}
+
+/* 8. Image Box Specifics */
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* 9. Colors */
+.color-1 { background-color: var(--muted-1); }
+.color-2 { background-color: var(--muted-2); }
+.color-3 { background-color: var(--muted-3); }
+.color-4 { background-color: var(--muted-4); }
+.color-5 { background-color: var(--muted-5); }
+
+/* 10. Responsive Adjustments (Mobile) */
+@media (max-width: 1024px) {
+    .banner {
+        margin-bottom: 20vh;
+    }
+    .row, .row:nth-child(even) {
+        flex-direction: column;
+        height: auto;
+        gap: 2rem;
+    }
+    .text-box, .image-box {
+        width: 90vw;
+        height: 50vh;
+    }
+}
