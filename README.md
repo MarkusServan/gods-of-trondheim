@@ -1,14 +1,15 @@
 Gods of Trondheim meta website
 
-**Project Structure**
-In the root folder, we have index.html. This file is a landing page. It contains. Links to each of our group's sites.
+## Project Structure
+In the root folder, we have index.html. This file is a landing page. It contains links to each of our group's sites.
 
 Each individual site has its own folder, named after your religion.
 Here you put your own site.
 We use HTML, CSS, Javascript/Typescript or some other javascript framework like React.
 That makes it easy to link our sites together.
+Look at occultism if you need an example.
 
-**Read this if you have not worked with git before**
+## Read this if you have not worked with git before 
 All this can seem a bit much. If it is, just email your files to markase@ntnu.no and we will make it work.
 
 We use git to share the code that we write. It is hosted here in our repository on github.
@@ -16,9 +17,9 @@ This makes it so all our code will be collected in one place.
 Git allows us to upload and make changes to our individual pieces of code whenever we want.
 
 We can:
-Pull other's code (download it).
-Commit our code (upload it).
-Have a personal branch that we work on to only have our changes. (Not really needed, since everyone has their own folder). 
+- Pull other's code (download it).
+- Commit our code (upload it).
+- Have a personal branch that we work on to only have our changes. (Not really needed, since everyone has their own folder). 
 
 ## 1. Setting Up
 
@@ -50,9 +51,9 @@ git config --global user.email "your-email@example.com"
 
 Use the same email you registered on GitHub so your commits are linked to your profile.
 
-### Set up SSH (recommended)
+### Set up SSH 
 
-SSH keys let you push and pull code without typing your password every time.
+SSH keys let you push and pull code.
 
 ```bash
 ssh-keygen -t ed25519 -C "your-email@example.com"
@@ -88,7 +89,7 @@ git clone git@github.com:MarkusServan/gods-of-trondheim.git
 Move into the folder:
 
 ```bash
-cd REPO-NAME
+cd gods-of-trondheim
 ```
 ---
 
@@ -109,7 +110,7 @@ git pull
 Don't work directly on `main`. Create your own branch:
 
 ```bash
-git checkout -b your-name/description
+git checkout -b your-religion
 ```
 
 For example: `git checkout -b maria/add-login-page`
