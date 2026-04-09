@@ -136,17 +136,20 @@ Tell Git which files to include:
 git add .
 ```
 
-This stages everything. Run `git status` again — your files should now appear in green.
+This stages everything. Run `git status` again, your files should now appear in green.
+If you only want to add some files but not all.
+
+```bash
+git add your-filename
+```
 
 ### 6. Commit
 
-Save a snapshot with a message describing what you added:
+Package it up and make your code ready for uploading to github. Add a message describing what you added:
 
 ```bash
 git commit -m "Add descirption of nattverden"
 ```
-
-Keep the message short and descriptive.
 
 ### 7. Push to GitHub
 
