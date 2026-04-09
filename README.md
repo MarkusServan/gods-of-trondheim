@@ -154,9 +154,23 @@ Keep the message short and descriptive.
 git push
 ```
 ---
-
+It will say that you need to set the upstream branch to remote. 
+Copy and paste the command that it shows you.
+You only need to do this the first time.
 
 ---
+### 8. Merge to main branch
+The main branch will be all our branches combined.
+To merge your branch to the main branch:
+Go to the main branch
+```bash
+git checkout main
+```
+Merge your branch with main. Substitute you-religion with the name of your branch.
+If you forgot your name or whatever, write git branch -a to show all branches
+```bash
+git merge your-religion
+```
 
 ## Common Issues
 
