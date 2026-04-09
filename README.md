@@ -166,8 +166,12 @@ Go to the main branch
 ```bash
 git checkout main
 ```
-Merge your branch with main. Substitute you-religion with the name of your branch.
-If you forgot your name or whatever, write git branch -a to show all branches
+Merge your branch with main. 
+If you forgot the name of your branch or whatever, write this to show all branches.
+```bash
+git branch -a
+```
+Then merge your branch into main. Substitute you-religion with the name of your branch.
 ```bash
 git merge your-religion
 ```
