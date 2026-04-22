@@ -858,4 +858,33 @@ a:hover { color: var(--accent-warm); }
   }
 }
 
+/* Homepage link */
+
+.back-top {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 0.9rem;
+    color: var(--back-link-color);
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+    z-index: 1000;
+}
+
+.back-top:hover {
+    opacity: 1;
+}
+
+/* Light mode */
+:root {
+    --back-link-color: #7a6f5a;
+}
+
+/* Dark mode */
+[data-theme="dark"] {
+    --back-link-color: #d8c9a3;
+}
+
+
 
