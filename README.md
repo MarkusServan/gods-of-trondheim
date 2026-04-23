@@ -1,7 +1,7 @@
 Gods of Trondheim meta website
 
 ## Project Structure
-In the root folder, we have index.html. This file is a landing page. It contains links to each of our group's sites.
+In the root folder, we have index.html. This file is a landing page. It contains links to each of our group's sites. Add a link to your site here. Look at the already implemented links for an example
 
 Each individual site has its own folder, named after your religion.
 Here you put your own site.
