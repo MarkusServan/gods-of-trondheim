@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Sámi People in Trondheim</title>
+  <style>
+    /* ── Samiske flaggfarger ── */
+    :root {
+      --rod:   #BE1C2B;
+      --bla:   #003F87;
+      --gul:   #FECC02;
+      --gronn: #007849;
+      --lys:   #FDF8F0;
+      --mork:  #1a1a2e;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      background-color: var(--lys);
+      color: var(--mork);
+    }
+
+    /* ── Samisk border-mønster (øverst og nederst) ── */
+    .sami-border {
+      height: 16px;
+      background: linear-gradient(
+        to right,
+        var(--rod)   0%,   var(--rod)   25%,
+        var(--bla)   25%,  var(--bla)   50%,
+        var(--gul)   50%,  var(--gul)   75%,
+        var(--gronn) 75%,  var(--gronn) 100%
+      );
+    }
+
+    /* ── NAVIGASJON ── */
+    nav {
+      background-color: var(--bla);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    nav .logo {
+      color: var(--gul);
+      font-size: 1.1rem;
+      font-weight: bold;
+      padding: 1rem 0;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.aktiv {
+      background-color: var(--rod);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 420px;
+      background-color: #2a4a6b;
+      background-image: url('Bilder EiT/Hero.JPG');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .hero-overlay {
+      width: 100%;
+      padding: 2rem;
+      background: linear-gradient(transparent, rgba(0,0,0,0.75));
+      color: white;
+    }
+
+    .hero-overlay h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.4rem;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    }
+
+    .hero-overlay p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      font-style: italic;
+    }
+
+    /* ── MAIN INNHOLD ── */
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+
+    /* ── SEKSJONSOVERSKRIFT ── */
+    .seksjons-tittel {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .seksjons-tittel::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 2.2rem;
+      background: var(--rod);
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
+    .seksjons-tittel h2 {
+      font-size: 1.8rem;
+      color: var(--bla);
+    }
+
+    /* ── OM-SEKSJONEN ── */
+    .om-seksjon {
+      margin-bottom: 3rem;
+    }
+
+    .om-seksjon p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    /* ── FELTARBEID-SEKSJON ── */
+    .feltarbeid {
+      background-color: white;
+      border-left: 5px solid var(--gul);
+      border-radius: 0 8px 8px 0;
+      padding: 1.5rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .feltarbeid h3 {
+      font-size: 1.2rem;
+      color: var(--bla);
+      margin-bottom: 0.8rem;
+    }
+
+    .feltarbeid p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #444;
+    }
+
+    /* ── BILDEGALLERI ── */
+    .galleri-seksjon {
+      margin-bottom: 3rem;
+    }
+
+    .galleri {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .galleri-kort {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+      background: white;
+    }
+
+    .galleri-kort img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Plassholder hvis bilde mangler */
+    .bilde-plassholder {
+      width: 100%;
+      height: 200px;
+      background-color: #cce0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--bla);
+      font-size: 0.9rem;
+      text-align: center;
+      gap: 0.5rem;
+    }
+
+    .bilde-plassholder span {
+      font-size: 2rem;
+    }
+
+    .galleri-kort .bildetekst {
+      padding: 0.7rem 1rem;
+      font-size: 0.9rem;
+      color: #555;
+      font-style: italic;
+    }
+
+    /* ── PODCAST-SEKSJON ── */
+    .podcast-seksjon {
+      margin-bottom: 3rem;
+    }
+
+    .podcast-kort {
+      background: white;
+      border-radius: 12px;
+      padding: 1.8rem;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      border-top: 4px solid var(--gronn);
+    }
+
+    .podcast-kort h3 {
+      font-size: 1.2rem;
+      color: var(--bla);
+    }
+
+    .podcast-kort p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    /* HTML5 audio-spiller */
+    .podcast-kort audio {
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+
+    /* Melding hvis fil ikke er lagt til */
+    .podcast-plassholder {
+      background-color: #eef6ee;
+      border: 2px dashed var(--gronn);
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      color: var(--gronn);
+      font-size: 0.95rem;
+    }
+
+    .podcast-plassholder span {
+      display: block;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background-color: var(--mork);
+      color: #ccc;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    footer strong {
+      color: var(--gul);
+    }
+
+    /* ── Responsivt ── */
+    @media (max-width: 600px) {
+      .hero-overlay h1 { font-size: 1.8rem; }
+      nav ul { justify-content: center; }
+      nav .logo { text-align: center; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fargebord øverst -->
+  <div class="sami-border"></div>
+
+  <!-- Navigasjon -->
+  <nav>
+    <div class="logo">Religions &amp; Cultures in Trondheim</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="samer.html" class="aktiv">The Sámi</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero-bilde -->
+  <section class="hero">
+    <!--
+      TIPS: Legg bildet ditt i en mappe som heter "bilder" og endre filnavnet
+      i CSS-en over (background-image: url('bilder/hero.jpg'))
+    -->
+    <div class="hero-overlay">
+      <h1>The Sámi People in Trondheim</h1>
+      <p>Sámi presence in a modern city</p>
+    </div>
+  </section>
+
+  <!-- Fargebord etter hero -->
+  <div class="sami-border"></div>
+
+  <!-- Hovedinnhold -->
+  <main>
+
+    <!-- Om samene -->
+    <section class="om-seksjon">
+      <div class="seksjons-tittel"><h2>About Sámi culture</h2></div>
+      <p>
+        The Sámi are Norway's indigenous people and have inhabited the area known as Sápmi for thousands of years.
+        Their culture is rich in traditions tied to reindeer herding, joik (traditional song), handicraft (duodji),
+        and a deep connection to nature.
+      </p>
+      <p>
+      Trondheim is an important city for Sámi history and is often referred to as a central meeting place. We wanted to explore the city and see how Sámi culture is integrated into it.
+      </p>
+    </section>
+
+    <!-- Feltarbeid -->
+    <section class="feltarbeid">
+      <h3>🔍 Our fieldwork</h3>
+      <p>
+        Throughout this project, we set out to explore the presence of Sámi culture in Trondheim. We joined a Sámi city walk, attended a public debate and experienced a contemporary art exhibition. We also had the privilege of interviewing Sámi individuals about their lives and identity in the city. Through these encounters, we gained a nuanced understanding of how Sámi culture exists and finds expression in Trondheim today.
+      </p>
+    </section>
+
+    <!-- Bildegalleri -->
+    <section class="galleri-seksjon">
+      <div class="seksjons-tittel"><h2>Photos from our fieldwork</h2></div>
+      <div class="galleri">
+
+        <!-- Bilde 1 -->
+        <div class="galleri-kort">
+          <img src="Bilder EiT/Scavenger.jpg" alt="Scavenger hunt">
+          <div class="bildetekst">Sámi city walk</div>
+        </div>
+
+        <!-- Bilde 2 -->
+        <div class="galleri-kort">
+          <img src="Bilder EiT/Debatt.jpg" alt="Debatt">
+          <div class="bildetekst">Debate at Samfundet</div>
+        </div>
+
+        <!-- Bilde 3 -->
+        <div class="galleri-kort">
+          <img src="Bilder EiT/Utstilling.jpg" alt="Utstilling">
+          <div class="bildetekst">Art exhibition by Outi Pieski</div>
+        </div>
+
+        <!--
+          Kopier en av blokkene over for å legge til flere bilder.
+        -->
+
+      </div>
+    </section>
+
+    <!-- Podcast -->
+    <section class="podcast-seksjon">
+      <div class="seksjons-tittel"><h2>Our podcast</h2></div>
+      <div class="podcast-kort">
+        <h3>🎙️ [Conversations on Sámi presence in Trondheim]</h3>
+        <p>
+          In this episode, the group sits down for an informal conversation about our work this spring — what we did, what surprised us, and what we took away from exploring Sámi culture and presence in Trondheim
+        </p>
+
+        <!--
+          How to add your podcast:
+          1. Remove the div with class "podcast-plassholder" below
+          2. Replace FILENAME.mp3 with your audio file:
+             <audio controls>
+               <source src="podcast/episode.mp3" type="audio/mpeg">
+               Your browser does not support audio.
+             </audio>
+
+          Place the audio file in a folder called "podcast" next to the HTML file.
+          Supported formats: .mp3, .ogg, .wav
+        -->
+        <audio controls>
+  <source src="podcast/Podcast EiT.mp3" type="audio/mpeg">
+  Your browser does not support audio.
+</audio>
+
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Fargebord -->
+  <div class="sami-border"></div>
+
+  <!-- Footer -->
+  <footer>
+    <p>Made by <strong>[The Sámi group]</strong> · Religions &amp; Cultures in Trondheim · 2026</p>
+  </footer>
+
+</body>
+</html>
