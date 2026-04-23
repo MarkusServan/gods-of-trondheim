@@ -887,4 +887,15 @@ a:hover { color: var(--accent-warm); }
 }
 
 
+/*r1*/
+.underoverskrift {
+  font-weight: bold;
+} 
+
+blockquote{
+  padding-left: 20px;
+  font-style: italic;
+}
+
+
 
